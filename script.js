@@ -1,24 +1,24 @@
-// --- 1. Load books from localStorage or start with empty array
+
 let books = JSON.parse(localStorage.getItem("books")) || [];
 
-// --- 2. Save books to localStorage
+
 function saveBooks() {
   localStorage.setItem("books", JSON.stringify(books));
 }
 
-// --- 3. Display all books in the table
+
 function displayBooks(filteredBooks = books) {
   const tbody = document.querySelector("#book-table tbody");
   tbody.innerHTML = "";
 
   filteredBooks.forEach((book) => {
     const row = `
-      <tr class="hover:bg-pink-900 text-pink-600 hover:text-pink-50 text-[25px]">
-        <td class="px-4 py-2 border-b">${book.title}</td>
-        <td class="px-4 py-2 border-b">${book.author}</td>
-        <td class="px-4 py-2 border-b">${book.pages}</td>
-        <td class="px-4 py-2 border-b">${book.status}</td>
-        <td class="px-4 py-2 border-b space-x-2">
+      <tr class="hover:bg-pink-900 text-pink-600 hover:text-pink-50 text-[25px] ">
+        <td class="px-2 py-2 text-center border-b">${book.title}</td>
+        <td class="px-2 py-2 text-center border-b">${book.author}</td>
+        <td class="px-2 py-2 text-center border-b">${book.pages}</td>
+        <td class="px-2 py-2 text-center border-b">${book.status}</td>
+        <td class="px-2 py-2 text-center border-b space-x-2">
           <button onclick="deleteBook(${book.id})"
            class="text-red-600 hover:underline">Delete</button>
         </td>
@@ -28,7 +28,6 @@ function displayBooks(filteredBooks = books) {
   });
 }
 
-// --- 4. Add new book on form submit
 const form = document.getElementById("book-form");
 form.addEventListener("submit", function (e) {
   e.preventDefault();
